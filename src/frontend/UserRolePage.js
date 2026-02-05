@@ -86,28 +86,6 @@ export default function UserRolePage() {
         }
     };
 
-    /* ---------------- ADD USER TO FIREBASE ---------------- */
-    // const addUser = async () => {
-
-    //     if (!newUserData.username || !newUserData.password) {
-    //         alert("กรุณากรอกชื่อผู้ใช้งานและรหัสผ่านให้ครบ");
-    //         return;
-    //     }
-
-    //     try {
-    //         const salt = bcrypt.genSaltSync(10);
-    //         const hash = bcrypt.hashSync(newUserData.password, salt);
-
-    //         await setDoc(doc(db, "users", newUserData.username), {
-    //             name: newUserData.name,
-    //             nickname: newUserData.nickname,
-    //             email: newUserData.email,
-    //             username: newUserData.username,
-    //             passwordHash: hash,
-    //             role: roleTHtoEN(newUserData.role),
-    //             active: true
-    //         });
-
     const addUser = async () => {
         if (!newUserData.username || !newUserData.password) {
             alert("กรุณากรอกชื่อผู้ใช้งานและรหัสผ่าน");
