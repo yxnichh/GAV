@@ -1,0 +1,105 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  width: 550px;
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.popup-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.upload-area {
+  border: 2px dashed #bfbfbf;
+  border-radius: 12px;
+  text-align: center;
+  padding: 40px 10px;
+  margin-bottom: 25px;
+}
+
+.upload-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
+}
+
+.upload-text {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.select-btn {
+  padding: 12px 24px;
+  background: #e5e5e5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.file-progress {
+  background: #fafafa;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border: 1px solid #f0f0f0;
+}
+
+.file-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #ddd;
+  height: 8px;
+  border-radius: 6px;
+}
+
+.progress-fill {
+  height: 8px;
+  background: #2a60ff;
+  border-radius: 6px;
+}
+
+.popup-actions {
+  display: flex;
+  flex-direction: row;      /* บังคับให้อยู่แนวนอน */
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;                /* ระยะห่างระหว่างปุ่ม */
+  margin-top: 10px;
+}
+
+.close-btn,
+.upload-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-btn {
+  background: #ccc;
+}
+
+.upload-btn {
+  background: #0055aa;
+  color: white;
+}

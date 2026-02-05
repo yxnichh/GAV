@@ -1,0 +1,117 @@
+/* ---------------- PAGE ---------------- */
+.search-container {
+  width: 100%;
+  padding: 30px;
+  font-family: "Inter", sans-serif;
+  color: #004d73;
+}
+
+/* ---------------- HEADER ---------------- */
+.search-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #004d73;
+}
+
+.search-header p {
+  font-size: 14px;
+  color: #6c8faa;
+}
+
+/* ---------------- SEARCH BAR ONLY ---------------- */
+.search-top {
+  width: 100%;
+  margin: 18px 0 24px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-bar {
+  width: 360px;
+  display: flex;
+  align-items: center;
+  background: #f4faff;
+  border: 1.6px solid #cfe3f8;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-size: 18px;
+  box-shadow: 0 2px 4px rgba(0,80,180,0.06);
+}
+
+.search-bar svg {
+  color: #0094dc;
+  font-size: 18px;
+}
+
+.search-bar input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #004d73;
+  background: transparent;
+}
+
+.search-bar input::placeholder {
+  color: #7aa5c8;
+}
+
+/* ---------------- TABLE ---------------- */
+.table-wrapper {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #cfe3f8;
+  border-radius: 16px;
+  overflow-x: auto;
+  box-shadow: 0px 4px 14px rgba(79, 140, 200, 0.12);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Header */
+thead tr {
+  background: #eaf6ff;
+  color: #004d73;
+}
+
+th {
+  padding: 12px 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 1px solid #d6ecff;
+}
+
+/* Cells */
+td {
+  padding: 12px 14px;
+  white-space: nowrap;
+  border-bottom: 1px solid #e6f2ff;
+  color: #004d73;
+}
+
+/* Hover */
+tbody tr:hover {
+  background: #f0f8ff;
+}
+
+/* link */
+.link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ---------------- NO DATA ---------------- */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #6c8faa;
+}
+

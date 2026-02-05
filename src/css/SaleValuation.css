@@ -1,0 +1,117 @@
+.sale-page {
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sale-container {
+  padding: 32px 48px;
+}
+
+.sale-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sale-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Price */
+.price-card {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: white;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.price-card span {
+  font-size: 14px;
+}
+
+.price-card strong {
+  display: block;
+  font-size: 26px;
+  margin: 6px 0;
+}
+
+.price-card p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+/* Table */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modern-table th {
+  background: #f1f3f6;
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.modern-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.center { text-align: center; }
+.right { text-align: right; }
+.bold { font-weight: 600; }
+
+/* Final */
+.final-card {
+  background: #fff3e0;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+}
+
+.final-card span {
+  font-size: 14px;
+  color: #666;
+}
+
+.final-card strong {
+  display: block;
+  font-size: 28px;
+  color: #e65100;
+  margin: 8px 0;
+}
+
+.final-card p {
+  font-size: 13px;
+  color: #555;
+}

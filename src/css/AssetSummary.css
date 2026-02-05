@@ -1,0 +1,106 @@
+.asset-page {
+  background: #f4f6f9;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asset-container {
+  padding: 32px 48px;
+}
+
+.asset-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.asset-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 💰 Value Highlight */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.value-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.value-card span {
+  font-size: 13px;
+  color: #666;
+}
+
+.value-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+  color: #111;
+}
+
+.value-card.primary {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: #fff;
+}
+
+.value-card.primary span,
+.value-card.primary strong {
+  color: #fff;
+}
+
+/* 📄 Info */
+.info-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.info-card h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 32px;
+}
+
+.info-item span {
+  font-size: 13px;
+  color: #777;
+}
+
+.info-item p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* loading */
+.loading {
+  padding: 60px;
+  text-align: center;
+  font-size: 18px;
+}

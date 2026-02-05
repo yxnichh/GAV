@@ -1,0 +1,26 @@
+.result-page {
+  padding: 20px;
+  font-family: "Prompt", sans-serif;
+}
+
+.info-card {
+  background: #f2f6ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.result-card {
+  background: #eef2ff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.back {
+  margin-top: 20px;
+  background: #005bea;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+}

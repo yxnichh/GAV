@@ -1,0 +1,333 @@
+/* -------------------------------------------------- */
+/* PAGE CONTAINER                                     */
+/* -------------------------------------------------- */
+.userrole-page-container {
+  padding: 30px;
+  font-family: "Inter", sans-serif;
+  color: #004d73;
+}
+
+/* PAGE TITLE */
+.userrole-page-container h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------- */
+/* TOP CONTROL (SEARCH + ADD USER)                    */
+/* -------------------------------------------------- */
+.top-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+
+
+/* ADD USER BUTTON */
+.add-user-btn {
+  background: linear-gradient(90deg, #4facfe, #00a8e8);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(79,172,254,0.35);
+}
+
+/* -------------------------------------------------- */
+/* TABLE WRAPPER                                      */
+/* -------------------------------------------------- */
+.table-wrapper {
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #cfe9ff;
+  box-shadow: 0 4px 14px rgba(79,140,200,0.12);
+  overflow-x: auto;
+}
+
+/* TABLE */
+.role-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* CELLS */
+.role-table th,
+.role-table td {
+  padding: 12px;
+  font-size: 14px;
+  color: #004d73;
+  border-bottom: 1px solid #e6f2ff;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.role-table th {
+  background: #eaf6ff;
+  font-weight: 600;
+  text-align: left !important;
+}
+
+/* -------------------------------------------------- */
+/* FIXED COLUMN WIDTHS                                */
+/* -------------------------------------------------- */
+.role-table td:nth-child(1), .role-table th:nth-child(1) { width: 180px; }
+.role-table td:nth-child(2), .role-table th:nth-child(2) { width: 90px; }
+.role-table td:nth-child(3), .role-table th:nth-child(3) { width: 220px; }
+.role-table td:nth-child(4), .role-table th:nth-child(4) { width: 140px; }
+.role-table td:nth-child(5), .role-table th:nth-child(5) { width: 140px; }
+.role-table td:nth-child(6), .role-table th:nth-child(6) { width: 140px; overflow: visible !important;}
+.role-table td:nth-child(7), .role-table th:nth-child(7) { width: 140px; }
+
+
+/* -------------------------------------------------- */
+/* BADGES                                             */
+/* -------------------------------------------------- */
+.role-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.marketing { background: #4facfe; }
+.evaluation { background: #a78bfa; }
+.admin      { background: #ef4444; }
+.executive  { background: #10b981; }
+
+/* STATUS DOT */
+.status-dot {
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.status-dot.active { background: #10b981; }
+.status-dot.inactive { background: #bdbdbd; }
+
+/* -------------------------------------------------- */
+/* BUTTONS                                            */
+/* -------------------------------------------------- */
+.history-btn,
+.edit-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 8px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+
+.history-btn {
+  background: #dbeafe;
+  color: #004d73;
+  border-radius: 12px;
+}
+
+.history-btn:hover {
+  background: rgb(187, 224, 243);
+  transform: scale(1.05);
+}
+
+
+.edit-btn {
+  background: #3bafff;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+/* -------------------------------------------------- */
+/* PAGINATION                                          */
+/* -------------------------------------------------- */
+.table-footer-controls {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rows-per-page select {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #cfe9ff;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background: linear-gradient(90deg,#4facfe,#00a8e8);
+}
+
+/* -------------------------------------------------- */
+/* POPUP OVERLAY – เวอร์ชันนิ่งและเนียน              */
+/* -------------------------------------------------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* -------------------------------------------------- */
+/* POPUP OVERLAY                                      */
+/* -------------------------------------------------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.22);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* -------------------------------------------------- */
+/* POPUP CARD (MATCH CREATE JOB STYLE)                */
+/* -------------------------------------------------- */
+.popup-container.enterprise {
+  width: 480px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding-bottom: 8px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* header */
+.popup-header-role {
+  padding: 22px 32px;
+  border-bottom: 1px solid #e8edf5;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header-role h2 {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444;
+}
+.close-btn:hover {
+  color: #ff4d4d;
+}
+
+/* -------------------------------------------------- */
+/* BODY INPUTS                                        */
+/* -------------------------------------------------- */
+.popup-body.single {
+  padding: 26px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ⭐ input เหมือน create job 100% */
+.popup-input {
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 15px;
+  outline: none;
+  transition: 0.15s;
+}
+
+.popup-input:focus {
+  border: 1px solid #4a73ff;
+  background: #fff;
+}
+
+/* select */
+.popup-input.select {
+  appearance: none;
+  padding-right: 40px;
+}
+
+/* -------------------------------------------------- */
+/* FOOTER BUTTONS                                     */
+/* -------------------------------------------------- */
+.enterprise-btns {
+  padding: 18px 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+/* cancel */
+.cancel-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  background: #e9eef5;
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.cancel-btn:hover {
+  background: #d6dee9;
+}
+
+/* save */
+.save-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 50px;
+  background: #4a73ff;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(74, 115, 255, 0.35);
+  transition: 0.15s;
+}
+.save-btn:hover {
+  background: #3a5be0;
+  transform: translateY(-2px);
+}

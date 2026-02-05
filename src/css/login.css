@@ -1,0 +1,120 @@
+/* LAYOUT */
+.login-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+
+  /* พื้นหลังรวม */
+  background: linear-gradient(135deg, #e8f5ff, #ffffff);
+}
+
+/* LEFT PANEL */
+.logo-login {
+  flex-basis: 50%;        /* ← ส่วนนี้ทำให้แบ่งครึ่งจริงๆ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+  background: linear-gradient(135deg, #4facfe, #00a8e8);
+  
+  /* ไม่ให้ padding ดันพื้นที่ */
+  padding: 0;
+
+  box-shadow: inset 0 0 40px rgba(255,255,255,0.2);
+}
+
+.logo-img-login {
+  width: 65%;
+  max-width: 420px;
+}
+
+/* RIGHT PANEL */
+.login-right {
+  flex-basis: 50%;        /* ← ครึ่งขวาแบบแท้จริง */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;     /* จัดฟอร์มให้อยู่กลางของครึ่งขวา */
+
+  /* padding เฉพาะภายใน */
+  padding: 40px 60px;
+
+  animation: fadeIn 0.8s ease;
+}
+
+.login-right h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #004d73;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #5f6f7a;
+  margin-bottom: 35px;
+  font-size: 15px;
+}
+
+/* FORM */
+.login-form {
+  width: 100%;
+  max-width: 360px;       /* ← ฟอร์มไม่ไปเกี่ยวกับความกว้าง panel */
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #003f60;
+  font-weight: 500;
+}
+
+.login-form input {
+  padding: 14px;
+  border-radius: 100px;
+  border: 1px solid #d4e6f5;
+  background: #f9fbff;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.login-form input:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.3);
+}
+
+/* BUTTON */
+.login-form button {
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, #4facfe, #00a8e8);
+  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.45);
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(79, 172, 254, 0.55);
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .logo-login, .login-right {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .login-right {
+    padding: 20px 40px;
+  }
+}

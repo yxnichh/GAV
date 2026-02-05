@@ -1,0 +1,93 @@
+
+.plan-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px 30px;   /* เว้นขอบนิดเดียวเพื่อไม่ให้ติดขอบหน้าจอ */
+  box-sizing: border-box;
+}
+
+
+/* Search */
+.plan-search {
+  margin-bottom: 15px;
+}
+
+.plan-search input {
+  width: 40%;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+  outline: none;
+  font-size: 20px;
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1.6px solid #cbd5e1;
+  border-radius: 30px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+}
+
+.plan-table-container {
+  width: 100%;
+}
+.plan-table {
+  width: 100%;
+  table-layout: fixed;   /* บังคับให้กระจายพื้นที่เท่ากัน */
+}
+
+.plan-table thead {
+  background: #0099ff;
+  color: white;
+}
+
+.plan-table th,
+.plan-table td {
+  padding: 15px 20px;
+  font-size: 20px;
+}
+
+
+.plan-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.plan-table tbody tr:hover {
+  background: #f0faff;
+}
+
+/* Button */
+.download-btn {
+  background: none;
+  border: none;
+  color: #0099ff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.download-btn:hover {
+  text-decoration: underline;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  border-radius: 50%;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background: #0099ff;
+  color: white;
+}

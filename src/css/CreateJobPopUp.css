@@ -1,0 +1,146 @@
+.createJob-container {
+  max-width: 650px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 30px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+  font-family: "Inter", sans-serif;
+
+  /* ⭐ เพิ่มเพื่อให้เลื่อนหน้าได้ */
+  max-height: 85vh;
+  overflow-y: auto;
+
+  /* ⭐ ทำให้เลื่อนลื่นขึ้น */
+  scroll-behavior: smooth;
+  will-change: transform;
+}
+
+/* scrollbar สวยๆ */
+.createJob-container::-webkit-scrollbar {
+  width: 0px;
+}
+.createJob-container::-webkit-scrollbar-thumb {
+  background: #c7d9ff;
+  border-radius: 8px;
+}
+.createJob-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #333;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input,
+select {
+  padding: 12px 14px;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  background: #fafafa;
+  outline: none;
+  transition: 0.15s;
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #4a73ff;
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.small {
+  flex: 1;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 50px;
+  background: #4a73ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.15s;
+}
+
+.submit-btn:hover {
+  background: #3a5be0;
+}
+
+textarea {
+  resize: none;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 15px;
+  outline: none;
+  transition: 0.15s;
+}
+
+textarea:focus {
+  border: 1px solid #4a73ff;
+  background: #fff;
+}
+
+.head-createjob {
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-btn:hover {
+  color: #ff4d4d;
+}
+
+.select-box {
+  position: relative;
+}
+
+.select-box select {
+  width: 100%;
+  padding-right: 40px;
+  appearance: none;
+}
+
+.select-box .dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #555;
+  pointer-events: none;
+}

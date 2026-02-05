@@ -1,0 +1,134 @@
+/* ------------------ GLOBAL BG ------------------ */
+body {
+  background: #f3f6fa; /* ฟ้าอ่อนนวลๆ */
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  padding: 36px 42px;
+}
+
+.date {
+  color: #7c8495;
+  margin-bottom: 26px;
+  font-size: 15px;
+}
+
+/* ------------------ CARD GRID ------------------ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 20px;
+}
+
+/* ------------------ CARD ------------------ */
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  min-height: 240px;
+  border: 1px solid rgba(0, 90, 150, 0.08);
+  box-shadow: 0 8px 24px rgba(20, 60, 120, 0.06);
+  position: relative;
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(20, 60, 120, 0.12);
+  border-color: rgba(0, 150, 230, 0.2);
+}
+
+/* Icon */
+.card .icon {
+  font-size: 40px;
+  color: #009ee0;
+  background: #e7f7ff;  /* ฟ้าอ่อนนวล */
+  padding: 16px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+/* Title */
+.card h3 {
+  margin: 10px 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #003d5b;
+}
+
+/* Description */
+.card p {
+  color: #4a5560;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* Arrow */
+.arrow {
+  position: absolute;
+  bottom: 18px;
+  right: 24px;
+  font-size: 37px;
+  opacity: 0.55;
+  color: #0087c8;
+  transition: 0.25s ease;
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ------------------ SECTION TITLE ------------------ */
+.website-title {
+  margin-top: 40px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #003d5b;
+}
+
+/* ------------------ WEBSITE CARD ------------------ */
+.website-grid .card {
+  background: #fff6e8;        /* ครีมอ่อนสบายตา */
+  border: 1px solid rgba(255, 162, 0, 0.25);
+}
+
+.website-grid .card:hover {
+  background: #ffedda;
+  border-color: #ff9d23;
+  transform: translateY(-4px);
+}
+
+/* Icon */
+.website-grid .card .icon {
+  color: #ff8a05;
+  background: rgba(255, 168, 66, 0.15);
+}
+
+/* Title */
+.website-grid .card h3 {
+  color: #ce5b00;
+}
+
+/* Text */
+.website-grid .card p {
+  color: #6b4200;
+}
+
+/* Arrow */
+.website-grid .card .arrow {
+  color: #bb5c00;
+}
+
+.card-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+  filter: grayscale(50%);
+}
+
+.disabled-text {
+  color: #7a8a99;
+}

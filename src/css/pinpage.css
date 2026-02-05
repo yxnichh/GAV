@@ -1,0 +1,34 @@
+.map-page {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.map-box {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+
+.history-btn-pin {
+  position: absolute;
+  left: 15px;
+  top: 240px;
+  bottom: 40px;
+  z-index: 9999;
+  width: 55px;
+  height: 55px;
+  background: rgba(28, 176, 235, 0.815);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
