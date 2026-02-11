@@ -1,0 +1,91 @@
+/* Overlay */
+.bank-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+/* Main Box */
+.bank-container {
+  width: 500px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  animation: fadeUp .18s ease-in-out;
+}
+
+/* Header */
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bank-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+.bank-close-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+}
+
+.bank-close-btn:hover {
+  color: #f44336;
+}
+
+/* GRID */
+.bank-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Each Bank Card */
+.bank-card {
+  background: #f5f7fb;
+  border-radius: 18px;
+  padding: 18px 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: 0.15s;
+}
+
+.bank-card:hover {
+  background: #e8f1ff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(74, 115, 255, 0.25);
+}
+
+/* Logo */
+.bank-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Name */
+.bank-name {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1; }
+}

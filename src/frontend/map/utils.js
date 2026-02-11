@@ -1,14 +1,29 @@
-export function normalizeLand(land) {
+// export function normalizeLand(land) {
+//   return {
+//     name: land?.name ?? "ไม่มีข้อมูล",
+//     lat: land?.lat ?? null,
+//     lon: land?.lon ?? null,
+//     price: land?.price ?? "ไม่มีข้อมูล",
+//     area: land?.area ?? "ไม่มีข้อมูล",
+//     owner: land?.owner ?? "ไม่มีข้อมูล",
+//     deed: land?.deed ?? "ไม่มีข้อมูล",
+//   };
+// }
+
+
+export function normalizeLand(data) {
   return {
-    name: land?.name ?? "ไม่มีข้อมูล",
-    lat: land?.lat ?? null,
-    lon: land?.lon ?? null,
-    price: land?.price ?? "ไม่มีข้อมูล",
-    area: land?.area ?? "ไม่มีข้อมูล",
-    owner: land?.owner ?? "ไม่มีข้อมูล",
-    deed: land?.deed ?? "ไม่มีข้อมูล",
+    docId: data.docId || null,   // ⭐ ต้องเพิ่มอันนี้ ไม่งั้นโหลด Firebase ไม่ได้
+    name: data.name || "-",
+    lat: Number(data.lat) || 0,
+    lon: Number(data.lon) || 0,
+    price: data.price || "-",
+    area: data.area || "-",
+    location: data.location || "-",
   };
 }
+
+
 
 export function distKm(lat1, lon1, lat2, lon2) {
   const R = 6371;

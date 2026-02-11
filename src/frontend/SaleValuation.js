@@ -1,32 +1,108 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/SaleValuation.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import TopTab from "./TopTab";
 import { FaArrowLeft } from "react-icons/fa";
+
+import { db } from "../backend/firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function SaleValuation() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const currentPos = state?.currentPos;
 
-  const appraisalPrice = 573000;
-
+  // ⭐ ข้อมูลน้ำหนัก (Fixed)
   const saleFactors = [
-    { id: 1, name: "สภาพเศรษฐกิจ", weight: 0.2, score: 3 },
-    { id: 2, name: "ศักยภาพและข้อจำกัดทางกฎหมาย", weight: 0.25, score: 2 },
-    { id: 3, name: "ทำเลและสภาพแวดล้อม", weight: 0.2, score: 3 },
-    { id: 4, name: "ขนาดและรูปร่างทรัพย์สิน", weight: 0.15, score: 2 },
-    { id: 5, name: "สาธารณูปโภคและการคมนาคม", weight: 0.2, score: 3 },
+    { id: 1, name: "สภาพเศรษฐกิจ (Economic Impact)", weight: 5 },
+    {
+      id: 2,
+      name:
+        "ศักยภาพในการพัฒนาทำประโยชน์ และข้อจำกัดทางกฎหมาย (Property Utilization, Development Potentiality and Legal Restriction Constraints)",
+      weight: 5,
+    },
+    {
+      id: 3,
+      name: "ทำเลและสภาพแวดล้อม (Location and Environment)",
+      weight: 4,
+    },
+    {
+      id: 4,
+      name: "ขนาดและรูปร่างตัวทรัพย์ที่ประเมิน (Physical Characteristics)",
+      weight: 3,
+    },
+    {
+      id: 5,
+      name:
+        "สาธารณูปโภค, สิ่งอำนวยความสะดวก และการคมนาคม (Facilities, Infrastructures and Transportation)",
+      weight: 3,
+    },
   ];
 
+  // คะแนนจาก Firebase
+  const [scores, setScores] = useState([]);
+
+  // ราคาประเมิน (ดึงจาก Firebase หรือ default)
+  const [appraisalPrice, setAppraisalPrice] = useState(0);
+
+  const land = state?.land;
+
+  // ⭐ โหลดคะแนน + appraisalPrice จาก Firebase
+  useEffect(() => {
+    async function loadData() {
+      if (!land?.docId) return;
+
+      const ref = doc(db, "lands", land.docId);
+      const snap = await getDoc(ref);
+
+      if (snap.exists()) {
+        const data = snap.data();
+
+        // แปลงคะแนนจาก string → number
+        const arr = (data.saleFactors || []).map((x) => Number(x));
+        setScores(arr);
+
+        setAppraisalPrice(data.appraisalPrice || 0);
+      }
+    }
+
+    loadData();
+  }, [land]);
+
+  // ⭐ คำนวณคะแนนรวม (weight × score)
   const saleScoreTotal = saleFactors.reduce(
-    (sum, f) => sum + f.weight * f.score,
+    (sum, f, index) => sum + f.weight * (scores[index] || 0),
     0
   );
 
+  // ⭐ ฟังก์ชันหาว่าอยู่ในช่วงไหน
+  function getDiscountIndex(total) {
+    if (total >= 69 && total <= 80) return 0;
+    if (total >= 57 && total <= 68) return 1;
+    if (total >= 45 && total <= 56) return 2;
+    if (total >= 33 && total <= 44) return 3;
+    if (total >= 21 && total <= 32) return 4;
+    return 5; // 0 - 20
+  }
+
+  const discountIndex = getDiscountIndex(saleScoreTotal);
+
+  // ⭐ ตารางส่วนลด
+  const discountRows = [
+    { range: "69 - 80", year: "1", pv: "0.892857", disc: "10%" },
+    { range: "57 - 68", year: "2", pv: "0.797194", disc: "20%" },
+    { range: "45 - 56", year: "3", pv: "0.711780", disc: "30%" },
+    { range: "33 - 44", year: "4", pv: "0.635518", disc: "35%" },
+    { range: "21 - 32", year: "5", pv: "0.567427", disc: "45%" },
+    { range: "0 - 20", year: "6-10", pv: "0.506631", disc: "50%" },
+  ];
+
   return (
     <div className="sale-page">
-      <TopTab page="map" setPage={(p) => navigate("/", { state: { page: p } })} />
+      <TopTab
+        page="map"
+        setPage={(p) => navigate("/", { state: { page: p } })}
+      />
 
       <div className="sale-container">
         {/* Header */}
@@ -37,7 +113,7 @@ export default function SaleValuation() {
               navigate("/", {
                 state: {
                   page: "map",
-                  land: state?.land,
+                  land,
                   currentPos,
                   openPopup: true,
                   openDetail: true,
@@ -54,7 +130,7 @@ export default function SaleValuation() {
         {/* Price Highlight */}
         <div className="price-card">
           <span>ราคาประเมินมูลค่าตลาด</span>
-          <strong>{appraisalPrice.toLocaleString()} บาท</strong>
+          <strong>{Number(appraisalPrice).toLocaleString()} บาท</strong>
           <p>ระดับคะแนน : ดีมาก 4 | ดี 3 | ปานกลาง 2 | ด้อย 1</p>
         </div>
 
@@ -72,13 +148,13 @@ export default function SaleValuation() {
               </tr>
             </thead>
             <tbody>
-              {saleFactors.map((f) => (
+              {saleFactors.map((f, index) => (
                 <tr key={f.id}>
                   <td>{f.name}</td>
                   <td className="center">{f.weight}</td>
-                  <td className="center">{f.score}</td>
+                  <td className="center">{scores[index]}</td>
                   <td className="right">
-                    {(f.weight * f.score).toFixed(2)}
+                    {(f.weight * (scores[index] || 0)).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -88,9 +164,7 @@ export default function SaleValuation() {
                 <td colSpan="3" className="right bold">
                   คะแนนรวม
                 </td>
-                <td className="right bold">
-                  {saleScoreTotal.toFixed(2)}
-                </td>
+                <td className="right bold">{saleScoreTotal.toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>
@@ -110,11 +184,19 @@ export default function SaleValuation() {
               </tr>
             </thead>
             <tbody>
-              <tr><td className="center">69 - 80</td><td className="center">1</td><td className="center">0.89</td><td className="center">10%</td></tr>
-              <tr><td className="center">57 - 68</td><td className="center">2</td><td className="center">0.79</td><td className="center">20%</td></tr>
-              <tr><td className="center">45 - 56</td><td className="center">3</td><td className="center">0.78</td><td className="center">30%</td></tr>
-              <tr><td className="center">33 - 44</td><td className="center">4</td><td className="center">0.65</td><td className="center">35%</td></tr>
-              <tr><td className="center">0 - 32</td><td className="center">5+</td><td className="center">0.53</td><td className="center">50%</td></tr>
+              {discountRows.map((row, idx) => (
+                <tr
+                  key={idx}
+                  className={discountIndex === idx ? "highlight-row" : ""}
+                >
+                  <td className="center">{row.range}</td>
+                  <td className="center">{row.year}</td>
+                  <td className="center">{row.pv}</td>
+                  <td className="center">
+                    {row.disc} {discountIndex === idx ? "✔" : ""}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -122,10 +204,8 @@ export default function SaleValuation() {
         {/* Summary */}
         <div className="final-card">
           <span>มูลค่าบังคับขายโดยประมาณ</span>
-          <strong>{appraisalPrice.toLocaleString()} บาท</strong>
-          <p>
-            เป็นมูลค่าที่ประมาณในราคาที่สามารถขายได้ภายในเวลาจำกัด
-          </p>
+          <strong>{Number(appraisalPrice).toLocaleString()} บาท</strong>
+          <p>เป็นมูลค่าที่ประมาณในราคาที่สามารถขายได้ภายในเวลาจำกัด</p>
         </div>
       </div>
     </div>

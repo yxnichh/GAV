@@ -2,120 +2,118 @@
 .wqs-page {
   width: 100%;
   min-height: 100vh;
-  background: #f4f7fb;
+  background: #f5f6fa;
   padding-bottom: 48px;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* ===== TITLE BAR ===== */
 .wqs-title {
-  position: sticky;
-  top: 56px;
-  z-index: 50;
 
+  z-index: 50;
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  padding: 14px 20px;
+  gap: 14px;
+  padding: 16px 24px;
   background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ececec;
 }
 
 .wqs-title h2 {
   font-size: 18px;
   font-weight: 600;
   margin: 0;
+  color: #333;
 }
 
 /* ===== BACK BUTTON ===== */
 .back-btn {
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 36px;
-  height: 36px;
-
   border-radius: 50%;
   border: none;
-  background: #e9f6fd;
-  color: #0077b6;
-
+  background: #eef2f7;
+  color: #555;
   font-size: 18px;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .back-btn:hover {
-  background: #cfefff;
-  transform: translateX(-2px);
+  background: #e2e8f0;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== MAIN CONTAINER ===== */
 .wqs-container {
-  padding: 20px;
-  max-width: 1600px;
+  padding: 24px;
+  max-width: 1000px;  /* ⭐ card เล็กลง */
   margin: auto;
 }
 
-/* ===== TABLE CARD ===== */
+/* ===== CARD TABLE ===== */
 .wqs-table {
-  width: 100%;
+  width: 90%;               /* ⭐ ตารางไม่เต็ม card */
+  margin: 24px auto;        /* ⭐ จัดกึ่งกลาง */
   border-collapse: collapse;
-  margin-bottom: 32px;
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  font-size: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  font-size: 13px;          /* ⭐ ย่อ text หน่อย */
 }
 
 /* ===== CELL ===== */
 .wqs-table th,
 .wqs-table td {
-  border: 1px solid #d0d0d0;
-  padding: 10px 12px;
+  padding: 10px 12px; 
   text-align: center;
-  line-height: 1.4;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 /* ===== HEADER ===== */
 .wqs-table th {
-  background: #0ea5e9;
-  color: #ffffff;
+  background: #f1f5f9;
+  font-size: 13.5px;
   font-weight: 600;
 }
 
+
 /* ===== TITLE ROW ===== */
 .title-gray {
-  background: #0369a1 !important;
-  color: #ffffff !important;
+  background: #e5e9ef !important;
+  font-weight: 600;
+  color: #333 !important;
   font-size: 15px;
 }
 
 /* ===== SPECIAL ROWS ===== */
 .gray {
-  background: #f3f3f3;
+  background: #fafafa;
   font-weight: 600;
 }
 
 .bold-row td {
-  font-weight: bold;
   background: #f0f9ff;
+  font-weight: 700;
 }
 
-/* ===== SUMMARY TABLE ===== */
+/* ===== SUMMARY LEFT COLUMN ===== */
 .summary-table td:first-child {
   text-align: left;
   font-weight: 600;
   background: #fafafa;
+  width: 260px;
 }
 
+/* ===== ESTIMATE ROW ===== */
 .estimate-row {
-  background: #e0f2fe;
+  background: #eaf4ff;
+  font-weight: 700;
   font-size: 15px;
-  font-weight: bold;
 }
 
 /* ===== LOADING ===== */
@@ -123,5 +121,5 @@
   margin-top: 80px;
   text-align: center;
   font-size: 16px;
-  color: #555;
+  color: #777;
 }

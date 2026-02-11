@@ -283,8 +283,8 @@
   position: absolute;
   right: 20px;
   top: 40px;
-  width: 550px;
-  height: 650px;
+  width: 700px;
+  height: 550px;
 
   background: rgba(101, 159, 247, 0.32);
   backdrop-filter: blur(12px);
@@ -342,7 +342,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.popup-row {
+.popup-row {  
   display: grid;
   grid-template-columns: 34px 1fr auto; /* icon | label | value */
   align-items: center;

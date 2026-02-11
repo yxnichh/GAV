@@ -1,6 +1,3 @@
-// -------------------------
-// WQS.js
-// -------------------------
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../css/WQS.css";
@@ -14,37 +11,34 @@ export default function WQS() {
 
     useEffect(() => {
         async function load() {
-            try {
-                const mock = {
-                    landSize: { target: "10,817.0", c1: "7,198.6", c2: "17,236.7", c3: "9,783.9" },
-                    landPrice: { target: "-", c1: "15,000", c2: "13,750", c3: "12,500" },
-                    developScore: {
-                        factor: [
-                            { name: "ทำเลที่ตั้ง / ด้านหน้าที่ดิน", weight: "15%", target: 7, c1: 7, c2: 7, c3: 6 },
-                            { name: "สภาพแวดล้อม", weight: "10%", target: 6, c1: 6, c2: 7, c3: 7 },
-                            { name: "ขนาดเนื้อที่ดิน", weight: "10%", target: 7, c1: 9, c2: 6, c3: 7 },
-                            { name: "หน้ากว้าง", weight: "10%", target: 7, c1: 6, c2: 7, c3: 6 },
-                            { name: "การพัฒนาถมดิน", weight: "10%", target: 7, c1: 7, c2: 7, c3: 7 },
-                            { name: "รูปร่างที่ดิน", weight: "10%", target: 7, c1: 7, c2: 7, c3: 6 },
-                            { name: "ถนนผ่านหน้า", weight: "15%", target: 8, c1: 8, c2: 8, c3: 7 },
-                            { name: "สาธารณูปโภค", weight: "10%", target: 6, c1: 6, c2: 6, c3: 6 },
-                            { name: "ข้อจำกัดด้านกฎหมาย", weight: "5%", target: 6, c1: 6, c2: 7, c3: 6 },
-                            { name: "การใช้ประโยชน์สูงสุด", weight: "5%", target: 6, c1: 6, c2: 6, c3: 6 }
-                        ],
-                        sum: { target: 685, c1: 705, c2: 685, c3: 655 }
-                    },
-                    summary: {
-                        comparedPercent: ["0.00%", "-2.84%", "0.00%", "4.58%"],
-                        wqsPrice: ["13,117", "12,375", "10,458"],
-                        adjustFactor: ["30.00%", "50.00%", "20.00%"],
-                        finalPrice: ["12,214", "3,935", "6,188", "2,092"],
-                        estimate: "12,000",
-                        rsq: "99.22%"
-                    }
-                };
-
-                setData(mock);
-            } catch (err) { console.error(err); }
+            const mock = {
+                landSize: { target: "10,817.0", c1: "7,198.6", c2: "17,236.7", c3: "9,783.9" },
+                landPrice: { target: "-", c1: "15,000", c2: "13,750", c3: "12,500" },
+                developScore: {
+                    factor: [
+                        { name: "ทำเลที่ตั้ง / ด้านหน้าที่ดิน", weight: "15%", target: 7, c1: 7, c2: 7, c3: 6 },
+                        { name: "สภาพแวดล้อม", weight: "10%", target: 6, c1: 6, c2: 7, c3: 7 },
+                        { name: "ขนาดเนื้อที่ดิน", weight: "10%", target: 7, c1: 9, c2: 6, c3: 7 },
+                        { name: "หน้ากว้าง", weight: "10%", target: 7, c1: 6, c2: 7, c3: 6 },
+                        { name: "การพัฒนาถมดิน", weight: "10%", target: 7, c1: 7, c2: 7, c3: 7 },
+                        { name: "รูปร่างที่ดิน", weight: "10%", target: 7, c1: 7, c2: 7, c3: 6 },
+                        { name: "ถนนผ่านหน้า", weight: "15%", target: 8, c1: 8, c2: 8, c3: 7 },
+                        { name: "สาธารณูปโภค", weight: "10%", target: 6, c1: 6, c2: 6, c3: 6 },
+                        { name: "ข้อจำกัดด้านกฎหมาย", weight: "5%", target: 6, c1: 6, c2: 7, c3: 6 },
+                        { name: "การใช้ประโยชน์สูงสุด", weight: "5%", target: 6, c1: 6, c2: 6, c3: 6 }
+                    ],
+                    sum: { target: 685, c1: 705, c2: 685, c3: 655 }
+                },
+                summary: {
+                    comparedPercent: ["0.00%", "-2.84%", "0.00%", "4.58%"],
+                    wqsPrice: ["13,117", "12,375", "10,458"],
+                    adjustFactor: ["30.00%", "50.00%", "20.00%"],
+                    finalPrice: ["12,214", "3,935", "6,188", "2,092"],
+                    estimate: "12,000",
+                    rsq: "99.22%"
+                }
+            };
+            setData(mock);
         }
 
         load();
@@ -70,25 +64,24 @@ export default function WQS() {
                             state: {
                                 page: "map",
                                 land: state?.land,
-                                currentPos: currentPos,   // ⭐ ส่งตำแหน่งกลับไป
+                                currentPos: currentPos,
                                 openPopup: true,
                                 openDetail: true
                             }
                         })
                     }
-
                 >
                     ←
                 </button>
+
                 <h2>ตารางแสดงวิธีการเปรียบเทียบให้คะแนนคุณภาพพร้อมถ่วงน้ำหนัก (WQS.)</h2>
             </div>
 
-            <div className="wqs-container">
+            {/* Container */}
+            <div className="wqs-card">
 
-                {/* --------------------
-                    ตารางส่วนบน
-                -------------------- */}
-                <table className="wqs-table">
+                {/* ตารางส่วนบน */}
+                <table className="wqs-table styled-table">
                     <thead>
                         <tr>
                             <th colSpan={6} className="title-gray">TABLE OF WEIGHTED QUALITY SCORE</th>
@@ -97,7 +90,7 @@ export default function WQS() {
                         <tr>
                             <th>รายการ</th>
                             <th>(หน่วย)</th>
-                            <th>ทรัพย์สินที่ประเมินมูลค่า</th>
+                            <th>ทรัพย์สินที่ประเมิน</th>
                             <th>ข้อมูลที่ 1</th>
                             <th>ข้อมูลที่ 2</th>
                             <th>ข้อมูลที่ 3</th>
@@ -160,7 +153,7 @@ export default function WQS() {
                         </tr>
 
                         <tr>
-                            <td>ราคาซื้อ/ขายหลังการปรับปัจจัยระยะเวลา</td>
+                            <td>ราคาซื้อ/ขายหลังปรับเวลา</td>
                             <td>บาท/ตารางวา</td>
                             <td>-</td>
                             <td>-</td>
@@ -168,8 +161,8 @@ export default function WQS() {
                             <td>-</td>
                         </tr>
 
-                        <tr>
-                            <td className="gray">ราคาที่ดินก่อนปรับ WQS</td>
+                        <tr className="gray">
+                            <td>ราคาที่ดินก่อนปรับ WQS</td>
                             <td>บาท/ตารางวา</td>
                             <td>-</td>
                             <td>13,500</td>
@@ -179,11 +172,8 @@ export default function WQS() {
                     </tbody>
                 </table>
 
-                {/* --------------------
-                    ตารางปัจจัยคุณภาพ (เหมือนรูป 100%)
-                -------------------- */}
-                <table className="wqs-table">
-
+                {/* ตารางปัจจัยคุณภาพ */}
+                <table className="wqs-table styled-table">
                     <thead>
                         <tr>
                             <th colSpan={6} className="title-gray">
@@ -193,20 +183,19 @@ export default function WQS() {
 
                         <tr>
                             <th rowSpan={2}>ปัจจัย</th>
-                            <th rowSpan={2}>น้ำหนัก<br />ปัจจัย</th>
-                            <th rowSpan={2}>ทรัพย์สินที่ทำ<br />ประเมินมูลค่า</th>
+                            <th rowSpan={2}>น้ำหนัก</th>
+                            <th rowSpan={2}>ทรัพย์สินที่ประเมิน</th>
                             <th colSpan={3}>ข้อมูลเปรียบเทียบ</th>
                         </tr>
 
                         <tr>
-                            <th>ข้อมูลที่ 1</th>
-                            <th>ข้อมูลที่ 2</th>
-                            <th>ข้อมูลที่ 3</th>
+                            <th>C1</th>
+                            <th>C2</th>
+                            <th>C3</th>
                         </tr>
                     </thead>
 
                     <tbody>
-
                         {data.developScore.factor.map((f, i) => (
                             <tr key={i}>
                                 <td>{f.name}</td>
@@ -226,19 +215,15 @@ export default function WQS() {
                             <td>{data.developScore.sum.c2}</td>
                             <td>{data.developScore.sum.c3}</td>
                         </tr>
-
                     </tbody>
                 </table>
 
-                {/* --------------------
-                    สรุปท้ายตาราง
-                -------------------- */}
-                <table className="wqs-table summary-table">
+                {/* สรุปท้าย */}
+                <table className="wqs-table summary-table styled-table">
 
                     <tbody>
-
                         <tr>
-                            <td>อัตราส่วนมาก/ลดเปรียบเทียบกับทรัพย์สิน<br />(เปอร์เซ็นต์)</td>
+                            <td>อัตราส่วนมาก/ลดทดลองเทียบ</td>
                             <td>{data.summary.comparedPercent[0]}</td>
                             <td>{data.summary.comparedPercent[1]}</td>
                             <td>{data.summary.comparedPercent[2]}</td>
@@ -246,7 +231,7 @@ export default function WQS() {
                         </tr>
 
                         <tr>
-                            <td>ราคาคำนวณปรับแก้ปัจจัยจากตาราง WQS<br />(บาท/ตารางวา)</td>
+                            <td>ราคาปรับจากตาราง WQS</td>
                             <td>{data.summary.wqsPrice[0]}</td>
                             <td>{data.summary.wqsPrice[1]}</td>
                             <td>{data.summary.wqsPrice[2]}</td>
@@ -254,7 +239,7 @@ export default function WQS() {
                         </tr>
 
                         <tr>
-                            <td>ระดับความสำคัญของข้อมูลเปรียบเทียบ<br />(เปอร์เซ็นต์)</td>
+                            <td>ระดับความสำคัญของข้อมูล</td>
                             <td>{data.summary.adjustFactor[0]}</td>
                             <td>{data.summary.adjustFactor[1]}</td>
                             <td>{data.summary.adjustFactor[2]}</td>
@@ -262,7 +247,7 @@ export default function WQS() {
                         </tr>
 
                         <tr>
-                            <td>มูลค่าหลังการปรับอัตราเปรียบเทียบ<br />(บาท/ตารางวา)</td>
+                            <td>มูลค่าหลังปรับเปรียบเทียบ</td>
                             <td>{data.summary.finalPrice[0]}</td>
                             <td>{data.summary.finalPrice[1]}</td>
                             <td>{data.summary.finalPrice[2]}</td>
@@ -270,12 +255,11 @@ export default function WQS() {
                         </tr>
 
                         <tr className="estimate-row">
-                            <td>มูลค่าทรัพย์สินที่ทำการประเมิน</td>
+                            <td>มูลค่าทรัพย์สินประเมิน</td>
                             <td colSpan={4}>
-                                ประมาณ {data.summary.estimate} บาท/ตารางวา (RSQ {data.summary.rsq})
+                                ประมาณ {data.summary.estimate} บาท/ตร.วา (RSQ {data.summary.rsq})
                             </td>
                         </tr>
-
                     </tbody>
 
                 </table>

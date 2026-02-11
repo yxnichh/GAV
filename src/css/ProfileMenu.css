@@ -1,14 +1,18 @@
 .profile-wrapper {
-  position: relative;
+  margin-left: auto;   /* ⭐ ดันไปขวาสุด */
+
+
 }
+
+
 
 .profile-btn {
   font-size: 32px;
   cursor: pointer;
   color: #ffffff; 
   right: 200px;
-  top: 500%;
-  transform: translateY(-50%);
+  top: 400%;
+
 }
 
 .profile-btn:hover {
@@ -19,10 +23,10 @@
 .profile-dropdown {
   position: absolute;
   right: 0;
-  top: 45px;
+  top: 60px;
   background: white;
   border-radius: 12px;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   z-index: 2000;

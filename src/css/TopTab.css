@@ -5,6 +5,7 @@
     #1e3a5f 0%,
     #274c77 100%
   );
+  position: sticky;
   height: 68px;
   padding: 0 28px;
   display: flex;
@@ -62,7 +63,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: #9ecbff;
+  background: #ffffff;
   border-radius: 2px;
 }
 

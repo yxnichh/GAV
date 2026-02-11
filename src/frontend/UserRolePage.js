@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/UserRolePage.css";
 import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import { HiChevronDown } from "react-icons/hi";
 
 import { db } from "../backend/firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
@@ -208,7 +209,7 @@ export default function UserRolePage() {
                 </div>
 
                 <button className="add-user-btn" onClick={() => setShowCreate(true)}>
-                    เพิ่มผู้ใช้ +
+                    + เพิ่มผู้ใช้
                 </button>
             </div>
 
@@ -311,23 +312,6 @@ export default function UserRolePage() {
                                     <option value="evaluator">ฝ่ายประเมิน</option>
                                     <option value="admin">ฝ่ายแอดมิน</option>
                                     <option value="executive">ฝ่ายผู้บริหาร</option>
-                                </select>
-                            </div>
-
-                            <div className="input-group">
-                                <label>สถานะการใช้งาน</label>
-                                <select
-                                    className="popup-input"
-                                    value={editUser.active ? "true" : "false"}
-                                    onChange={(e) =>
-                                        setEditUser({
-                                            ...editUser,
-                                            active: e.target.value === "true"
-                                        })
-                                    }
-                                >
-                                    <option value="true">ใช้งานอยู่</option>
-                                    <option value="false">ไม่ใช้งาน</option>
                                 </select>
                             </div>
 
@@ -449,18 +433,23 @@ export default function UserRolePage() {
 
                             <div className="input-group">
                                 <label>สิทธิ์ผู้ใช้งาน</label>
-                                <select
-                                    className="popup-input select"
-                                    value={newUserData.role}
-                                    onChange={(e) =>
-                                        setNewUserData({ ...newUserData, role: e.target.value })
-                                    }
-                                >
-                                    <option>ฝ่ายการตลาด</option>
-                                    <option>ฝ่ายประเมิน</option>
-                                    <option>ฝ่ายแอดมิน</option>
-                                    <option>ฝ่ายผู้บริหาร</option>
-                                </select>
+
+                                <div className="select-wrapper">
+                                    <select
+                                        className="popup-input select"
+                                        value={newUserData.role}
+                                        onChange={(e) =>
+                                            setNewUserData({ ...newUserData, role: e.target.value })
+                                        }
+                                    >
+                                        <option>ฝ่ายการตลาด</option>
+                                        <option>ฝ่ายประเมิน</option>
+                                        <option>ฝ่ายแอดมิน</option>
+                                        <option>ฝ่ายผู้บริหาร</option>
+                                    </select>
+
+                                    <HiChevronDown className="dropdown-icon-user" />
+                                </div>
                             </div>
 
                         </div>

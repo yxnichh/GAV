@@ -1,16 +1,36 @@
 import React, { useState } from "react";
 import "../css/JobPage.css";
 import CreateJobPopUp from "./CreateJobPopUp";
+import BankSelectPopup from "./BankSelectPopup";   // ⭐ เพิ่มไฟล์นี้
 import { FiSearch } from "react-icons/fi";
 
 export default function JobPage() {
     const [jobs, setJobs] = useState([]);
     const [search, setSearch] = useState("");
+
+    // CREATE FLOW
+    const [showBankSelect, setShowBankSelect] = useState(false);
+    const [selectedBank, setSelectedBank] = useState("");
+    const [showCreateJob, setShowCreateJob] = useState(false);
+
+    // EDIT FLOW
     const [openModal, setOpenModal] = useState(false);
     const [editingJob, setEditingJob] = useState(null);
     const [editingIndex, setEditingIndex] = useState(null);
 
+    /* ---------------- CREATE JOB FLOW ---------------- */
+    const openCreateJob = () => {
+        setSelectedBank("");
+        setShowBankSelect(true);   // ⭐ แสดง popup เลือกธนาคารก่อน
+    };
 
+    const handleBankSelect = (bank) => {
+        setSelectedBank(bank);
+        setShowBankSelect(false);
+        setShowCreateJob(true);   // ⭐ เปิด create job หลังเลือกธนาคารแล้ว
+    };
+
+    /* ---------------- EDIT JOB FLOW ---------------- */
     const handleEdit = (job, index) => {
         setEditingJob(job);
         setEditingIndex(index);
@@ -23,6 +43,7 @@ export default function JobPage() {
         setJobs(updated);
     };
 
+    /* ---------------- SEARCH ---------------- */
     const filteredJobs = jobs.filter((j) => {
         const keyword = search.toLowerCase();
         return (
@@ -32,13 +53,31 @@ export default function JobPage() {
         );
     });
 
-
     return (
         <>
-            {/* ⭐ เบลอพื้นหลัง แต่ไม่เบลอ popup */}
-            {openModal && <div className="blur-overlay"></div>}
+            {/* ---------------- POPUP: SELECT BANK ---------------- */}
+            {showBankSelect && (
+                <BankSelectPopup
+                    closePopup={() => setShowBankSelect(false)}
+                    onSelect={handleBankSelect}
+                />
+            )}
 
-            {/* ⭐ Popup อยู่บนสุด ชัดเจน */}
+            {/* ---------------- POPUP: CREATE JOB ---------------- */}
+            {showCreateJob && (
+                <div className="job-popup-overlay">
+                    <CreateJobPopUp
+                        jobs={jobs}
+                        setJobs={setJobs}
+                        closeModal={() => setShowCreateJob(false)}
+                        editingJob={null}
+                        editingIndex={null}
+                        selectedBank={selectedBank}     // ⭐ ส่งธนาคารเข้าไป
+                    />
+                </div>
+            )}
+
+            {/* ---------------- POPUP: EDIT JOB ---------------- */}
             {openModal && (
                 <div className="job-popup-overlay">
                     <CreateJobPopUp
@@ -47,11 +86,12 @@ export default function JobPage() {
                         closeModal={() => setOpenModal(false)}
                         editingJob={editingJob}
                         editingIndex={editingIndex}
+                        selectedBank={null}             // แก้ไขไม่ต้องเลือกธนาคารใหม่
                     />
                 </div>
             )}
 
-            {/* ⭐ page-container ไม่ต้องเบลอแล้ว */}
+            {/* ---------------- PAGE BODY ---------------- */}
             <div className="page-container">
                 <h1 style={{ color: "#003e79" }}>แผนงาน</h1>
                 <p className="search-description">
@@ -59,7 +99,6 @@ export default function JobPage() {
                 </p>
 
                 <div className="top-bar">
-
                     <div className="job-search-bar">
                         <FiSearch />
                         <input
@@ -70,20 +109,16 @@ export default function JobPage() {
                         />
                     </div>
 
+                    {/* ⭐ ปุ่มสร้างงานใช้ openCreateJob ใหม่ */}
                     <button
                         className="create-btn"
-                        onClick={() => {
-                            setEditingJob(null);
-                            setEditingIndex(null);
-                            setOpenModal(true);
-                        }}
+                        onClick={openCreateJob}
                     >
-                        + Create Job
+                        + เพิ่มแผนงาน
                     </button>
-
                 </div>
 
-
+                {/* ---------------- TABLE ---------------- */}
                 <div className="table-wrapper">
                     <table className="job-table">
                         <thead>
@@ -162,3 +197,4 @@ export default function JobPage() {
         </>
     );
 }
+
